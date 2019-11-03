@@ -11,46 +11,53 @@ class App extends Component {
     totalItems: null,
     loading: true,
     input: '',
-    option: null
+    showAlert: false
   };
   handleSubmit = async () => {
-    const urls = [
-      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
-      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}+&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
-      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}+inauthor:keyes&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
-      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-    ];
-    let url;
-    if (this.state.option === 'a') {
-    } else if (this.state.option === 'b') {
-    } else if (this.state.option === 'c') {
+    if (this.state.input) {
+      let res = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+      );
+      res = res.data;
+      this.setState({
+        volumes: res.items,
+        totalItems: res.totalItems,
+        loading: false
+      });
     } else {
-      url = urls[0];
+      // alert('Type a book name or author to search');
+      this.setState({
+        showAlert: true
+      });
     }
-    let res = await axios.get(url);
-    res = res.data;
-    this.setState({
-      volumes: res.items,
-      totalItems: res.totalItems,
-      loading: false
-    });
-    console.log(this.state.option);
   };
   handleInp = inpu => {
     this.setState({
       input: inpu
     });
   };
-  handleOption = opt => {
-    this.setState({
-      option: opt
-    });
-  };
+
   render() {
     return (
       <div className='container'>
         <h1 className='tcenter'>Book Finder App</h1>
-        <Input inp={this.handleInp} option={this.handleOption} />
+        <Input inp={this.handleInp} />
+        {/* {
+          if (this.state.showAlert===true){
+            return (<div>please enter a valid name or author</div>)
+          }
+        } */}
+
+        {this.state.showAlert ? (
+          <div>please enter a valid name or author</div>
+        ) : null}
+        {() => {
+          setTimeout(() => {
+            this.setState({
+              showAlert: false
+            });
+          }, 5000)();
+        }}
         <SubmitButton submit={this.handleSubmit} />
         {!this.state.loading ? (
           <BookCollection

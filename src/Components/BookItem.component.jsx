@@ -19,7 +19,7 @@ class BookItem extends Component {
         <div className='book-image'>
           <img className='center' src={imageLinks.thumbnail} alt='empty' />
         </div>
-        <ul>
+        <ul className='py'>
           <li>title:{title}</li>
           <li>authors:{authors}</li>
           <li>publisher:{publisher}</li>

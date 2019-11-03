@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     volumes: null,
     totalItems: null,
-    loading: false,
+    loading: true,
     input: ''
   };
   handleSubmit = async () => {
@@ -20,7 +20,7 @@ class App extends Component {
     this.setState({
       volumes: res.items,
       totalItems: res.totalItems,
-      loading: true
+      loading: false
     });
   };
   handleInp = inpu => {
@@ -34,17 +34,12 @@ class App extends Component {
         <h1 className='tcenter'>Book Finder App</h1>
         <Input inp={this.handleInp} />
         <SubmitButton submit={this.handleSubmit} />
-        {this.state.loading ? (
-          <>
-            <p>
-              There are {this.state.totalItems} books that appear for your
-              search here
-            </p>
-            <BookCollection
-              loading={this.state.loading}
-              items={this.state.volumes}
-            />
-          </>
+        {!this.state.loading ? (
+          <BookCollection
+            loading={this.state.loading}
+            items={this.state.volumes}
+            totalItems={this.state.totalItems}
+          />
         ) : null}
       </div>
     );

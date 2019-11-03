@@ -18,7 +18,7 @@ code {
 
 .container {
   background-color: burlywood;
-  height: 100vh;
+  height: 100%;
   margin: 40px;
   border: 1px solid black;
 }
@@ -38,7 +38,16 @@ code {
 
 .book-item {
   width: 20%;
-  height: 150px;
+  margin: 10px;
+  border: white 1px solid;
+}
+.book-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+ul {
+  list-style: none;
 }
 /* utility */
 .center {

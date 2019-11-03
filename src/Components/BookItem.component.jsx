@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class BookItem extends Component {
   render() {
-    const { id, selfLink } = this.props.item;
+    const { selfLink } = this.props.item;
     const {
       title,
       authors,
@@ -20,18 +20,18 @@ class BookItem extends Component {
           <img src={imageLinks.thumbnail} alt='no picture' />
         </div>
         <ul>
+          <li>title:{title}</li>
+          <li>authors:{authors}</li>
+          <li>publisher:{publisher}</li>
+          <li>Date Published:{publishedDate}</li>
+          <li>Pages:{pageCount} </li>
+          {description && <li>Description:{description.slice(0, 150)}</li>}
+          {/* <li>{infoLink}</li> */}
           <li>
             <a href={selfLink} target='_blank'>
-              Go to Site
+              more info
             </a>
           </li>
-          <li>{title}</li>
-          <li>{authors}</li>
-          <li>{publisher}</li>
-          <li>{publishedDate}</li>
-          <li>{description}</li>
-          <li>{pageCount}</li>
-          <li>{infoLink}</li>
         </ul>
       </div>
     );

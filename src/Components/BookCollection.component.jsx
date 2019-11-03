@@ -3,10 +3,12 @@ import BookItem from './BookItem.component';
 
 class BookCollection extends Component {
   render() {
+    const { items } = this.props;
     return (
-      <div>
-        <BookItem item={this.props.items[0]} />
-        {/* {console.log(this.props.items)} */}
+      <div className='book-items'>
+        {items.map(item => {
+          return <BookItem item={item} />;
+        })}
       </div>
     );
   }

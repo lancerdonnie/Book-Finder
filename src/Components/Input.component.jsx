@@ -17,7 +17,7 @@ class Input extends Component {
             this.setState({
               [e.target.name]: e.target.value
             });
-            console.log(this);
+            // console.log(this);
             this.props.inp(this.state.input);
           }}
         />

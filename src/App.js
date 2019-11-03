@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='tcenter'>Book Finder App</h1>
+        <h1 className='tcenter heade'>Book Finder App</h1>
         <Input inp={this.handleInp} />
         {/* {
           if (this.state.showAlert===true){

@@ -19,13 +19,13 @@ class BookItem extends Component {
         <div className='book-image'>
           <img className='center' src={imageLinks.thumbnail} alt='empty' />
         </div>
-        <ul className='py'>
+        <ul className='py book-list'>
           <li>title:{title}</li>
           <li>authors:{authors}</li>
           <li>publisher:{publisher}</li>
           <li>Date Published:{publishedDate}</li>
           <li>Pages:{pageCount} </li>
-          {description && <li>Description:{description.slice(0, 150)}</li>}
+          {description && <li>Description:{description.slice(0, 120)}...</li>}
           {/* <li>{selfLink}</li> */}
           <li>
             <a rel='noopener noreferrer' href={infoLink} target='_blank'>

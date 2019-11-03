@@ -5,10 +5,11 @@ class BookCollection extends Component {
   render() {
     const { items } = this.props;
     return !this.props.loading ? (
-      <div>
-        <p>
-          There are {this.props.totalItems} books that appear for your search
-          here
+      <div className='book-collection'>
+        <p className='total-items tcenter center'>
+          There are{' '}
+          <span className='text-sec'> {this.props.totalItems} books</span> that
+          appear for your search here
         </p>
         <div className='book-items'>
           {items.map(item => {

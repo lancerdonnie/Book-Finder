@@ -1,0 +1,10 @@
+color lovers
+-add to favourite books 
+-add dropdown for author, title etc
+
+
+footer
+
+ 
+color
+#69D2E7,#A7DBD8,#E0E4CC,#F38630,#FA6900,#69D2E7,#A7DBD8,#E0E4CC

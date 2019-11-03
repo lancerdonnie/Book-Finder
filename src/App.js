@@ -9,11 +9,12 @@ class App extends Component {
   state = {
     volumes: null,
     totalItems: null,
-    loading: true
+    loading: true,
+    input: ''
   };
   handleSubmit = async () => {
     let res = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=flowers&key=AIzaSyAMSrdfXNovYo6ATbOWDGr9vua-2WRtTWc`
+      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
     );
     res = res.data;
     this.setState({
@@ -22,20 +23,23 @@ class App extends Component {
       loading: false
     });
   };
+  handleInp = inpu => {
+    this.setState({
+      input: inpu
+    });
+  };
   render() {
     return (
       <div className='container'>
         <h1 className='tcenter'>Book Finder App</h1>
-        <Input />
+        <Input inp={this.handleInp} />
         <SubmitButton submit={this.handleSubmit} />
         {!this.state.loading ? (
-          <>
-            <p>
-              There are {this.state.totalItems} books that appear for your
-              search here
-            </p>
-            <BookCollection items={this.state.volumes} />
-          </>
+          <BookCollection
+            loading={this.state.loading}
+            items={this.state.volumes}
+            totalItems={this.state.totalItems}
+          />
         ) : null}
       </div>
     );

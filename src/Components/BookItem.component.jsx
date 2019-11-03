@@ -16,8 +16,8 @@ class BookItem extends Component {
 
     return (
       <div className='book-item'>
-        <div>
-          <img src={imageLinks.thumbnail} alt='no picture' />
+        <div className='book-image'>
+          <img className='center' src={imageLinks.thumbnail} alt='empty' />
         </div>
         <ul>
           <li>title:{title}</li>
@@ -28,7 +28,7 @@ class BookItem extends Component {
           {description && <li>Description:{description.slice(0, 150)}</li>}
           {/* <li>{infoLink}</li> */}
           <li>
-            <a href={selfLink} target='_blank'>
+            <a rel='noopener noreferrer' href={selfLink} target='_blank'>
               more info
             </a>
           </li>

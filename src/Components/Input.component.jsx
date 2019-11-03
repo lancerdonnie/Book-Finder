@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 
 class Input extends Component {
-  state = {
-    input: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+  }
+
+  handleInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    this.props.inp(this.state.input);
   };
   render() {
     return (
@@ -13,13 +23,7 @@ class Input extends Component {
           placeholder='Search for a book'
           name='input'
           value={this.state.input}
-          onChange={e => {
-            this.setState({
-              [e.target.name]: e.target.value
-            });
-            // console.log(this);
-            this.props.inp(this.state.input);
-          }}
+          onChange={this.handleInput}
         />
       </div>
     );

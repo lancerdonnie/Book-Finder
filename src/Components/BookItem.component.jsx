@@ -16,8 +16,8 @@ class BookItem extends Component {
 
     return (
       <div className='book-item'>
-        <div>
-          <img src={imageLinks.thumbnail} alt='empty' />
+        <div className='book-image'>
+          <img className='center' src={imageLinks.thumbnail} alt='empty' />
         </div>
         <ul>
           <li>title:{title}</li>

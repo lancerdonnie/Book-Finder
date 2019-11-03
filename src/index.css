@@ -53,3 +53,6 @@ code {
 .px {
   padding: 0px 20px;
 }
+.show-hide {
+  display: none;
+}

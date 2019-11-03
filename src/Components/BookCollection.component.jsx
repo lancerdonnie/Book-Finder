@@ -5,7 +5,8 @@ class BookCollection extends Component {
   render() {
     return (
       <div>
-        <BookItem />
+        <BookItem item={this.props.items[0]} />
+        {/* {console.log(this.props.items)} */}
       </div>
     );
   }

@@ -26,9 +26,9 @@ class BookItem extends Component {
           <li>Date Published:{publishedDate}</li>
           <li>Pages:{pageCount} </li>
           {description && <li>Description:{description.slice(0, 150)}</li>}
-          {/* <li>{infoLink}</li> */}
+          {/* <li>{selfLink}</li> */}
           <li>
-            <a rel='noopener noreferrer' href={selfLink} target='_blank'>
+            <a rel='noopener noreferrer' href={infoLink} target='_blank'>
               more info
             </a>
           </li>

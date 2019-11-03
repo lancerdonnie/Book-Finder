@@ -43,6 +43,8 @@ code {
   margin: 10px;
   border: white 1px solid;
   background-color: #f38630;
+  background-color: white;
+
 }
 .book-items {
   display: flex;

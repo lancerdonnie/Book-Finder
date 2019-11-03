@@ -8,3 +8,6 @@ footer
  
 color
 #69D2E7,#A7DBD8,#E0E4CC,#F38630,#FA6900,#69D2E7,#A7DBD8,#E0E4CC
+
+FIX
+-spinner

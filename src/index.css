@@ -18,23 +18,27 @@ code {
 }
 
 .container {
-  background-color: #69d2e7;
+  /* background-color: #69d2e7; */
   height: 100%;
   margin: 40px;
-  border: 1px solid black;
   border-radius: 0.5rem;
 }
 
 .main-input {
   display: block;
   padding: 10px 10px;
-  width: 100%;
+  width: 40%;
+  border: none;
+  outline: none;
+  background-color: #112a42;
+  color: #ffb100;
+  margin: 5px auto;
 }
 
 .submit-button {
   display: block;
   padding: 10px 10px;
-  width: 100%;
+  width: 40%;
   cursor: pointer;
   border: none;
   outline: none;
@@ -48,24 +52,24 @@ code {
   color: white;
   border-radius: 0.2rem;
   padding: 10px;
+  display: inline;
+  margin: 30px auto;
 }
 .book-collection {
   margin: 20px;
 }
 .book-item {
   padding: 10px;
-  width: 23%;
   margin: 10px;
-  border: #ffb100 2px solid;
   color: #fff;
-  /* color: #ffb100; */
   background-color: #f38630;
   background-color: #112a42;
   border-radius: 0.5rem;
 }
 .book-items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* gap: 20px; */
+  grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
 }
 a {
@@ -90,6 +94,7 @@ li:last-child {
 }
 .heade {
   padding: 20px 0;
+  color: #081927;
 }
 /* utility */
 .center {
@@ -107,8 +112,7 @@ li:last-child {
 .show-hide {
   display: none;
 }
-.spinner {
-}
+
 .text-sec {
   color: #ffb100;
 }

@@ -29,7 +29,7 @@ class BookItem extends Component {
           {/* <li>{selfLink}</li> */}
           <li>
             <a rel='noopener noreferrer' href={infoLink} target='_blank'>
-              more info
+              learn more
             </a>
           </li>
         </ul>

@@ -19,7 +19,7 @@ class Input extends Component {
     return (
       <div className='px '>
         <input
-          className='main-input'
+          className='main-input '
           type='text'
           placeholder='Search for a book'
           name='input'

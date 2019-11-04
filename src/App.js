@@ -10,29 +10,54 @@ class App extends Component {
     volumes: null,
     totalItems: null,
     loading: true,
-    input: ''
+    input: '',
+    showAlert: false
   };
   handleSubmit = async () => {
-    let res = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-    );
-    res = res.data;
-    this.setState({
-      volumes: res.items,
-      totalItems: res.totalItems,
-      loading: false
-    });
+    if (this.state.input) {
+      let res = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+      );
+      res = res.data;
+      this.setState({
+        volumes: res.items,
+        totalItems: res.totalItems,
+        loading: false
+      });
+    } else {
+      // alert('Type a book name or author to search');
+      this.setState({
+        showAlert: true
+      });
+    }
   };
   handleInp = inpu => {
     this.setState({
       input: inpu
     });
   };
+
   render() {
     return (
       <div className='container'>
-        <h1 className='tcenter'>Book Finder App</h1>
+        <h1 className='tcenter heade'>Book Finder App</h1>
         <Input inp={this.handleInp} />
+        {/* {
+          if (this.state.showAlert===true){
+            return (<div>please enter a valid name or author</div>)
+          }
+        } */}
+
+        {this.state.showAlert ? (
+          <div>please enter a valid name or author</div>
+        ) : null}
+        {() => {
+          setTimeout(() => {
+            this.setState({
+              showAlert: false
+            });
+          }, 5000)();
+        }}
         <SubmitButton submit={this.handleSubmit} />
         {!this.state.loading ? (
           <BookCollection

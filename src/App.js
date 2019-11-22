@@ -5,6 +5,13 @@ import BookCollection from './Components/BookCollection.component';
 
 import axios from 'axios';
 
+let googleApiKey;
+if (process.env.NODE_ENV !== 'production') {
+  googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+} else {
+  googleApiKey = process.env.GOOGLE_API_KEY;
+}
+
 class App extends Component {
   state = {
     volumes: null,
@@ -16,7 +23,7 @@ class App extends Component {
   handleSubmit = async () => {
     if (this.state.input) {
       let res = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        `https://www.googleapis.com/books/v1/volumes?q=${this.state.input}&key=${googleApiKey}`
       );
       res = res.data;
       this.setState({

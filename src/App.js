@@ -6,13 +6,12 @@ import BookCollection from './Components/BookCollection.component';
 import axios from 'axios';
 
 let googleApiKey;
-googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
-// if (process.env.NODE_ENV !== 'production') {
-//   googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-// } else {
-//   googleApiKey = process.env.GOOGLE_API_KEY;
-// }
+if (process.env.NODE_ENV !== 'production') {
+  googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+} else {
+  googleApiKey = process.env.GOOGLE_API_KEY;
+}
 
 class App extends Component {
   state = {

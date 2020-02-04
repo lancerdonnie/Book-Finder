@@ -54,6 +54,8 @@ code {
   padding: 10px;
   display: inline;
   margin: 30px auto;
+  text-align: center;
+  line-height: 2.7rem;
 }
 .book-collection {
   margin: 20px;
@@ -71,6 +73,7 @@ code {
   /* gap: 20px; */
   grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
+  align-items: center;
 }
 a {
   color: #ffb100;
@@ -115,4 +118,26 @@ li:last-child {
 
 .text-sec {
   color: #ffb100;
+}
+
+@media only screen and (max-width: 767px) {
+  .book-items {
+    grid-template-columns: auto auto;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .book-items {
+    grid-template-columns: auto;
+  }
+  .book-item {
+    /* width: 100%; */
+  }
+  .container {
+    margin: unset;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .book-items {
+    grid-template-columns: auto auto auto;
+  }
 }
